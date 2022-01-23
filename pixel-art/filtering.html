@@ -1,0 +1,81 @@
+<h2>Texture filtering</h2>
+
+<!-- <span class="aside">This is the marginal note. Blah, blah, blah, blah. Wowzy!</span> -->
+
+<p>
+When rendering pixel art on modern screens with high resolutions, we typically need to scale it up. There are many ways to do this.
+</p>
+
+<p>
+Most hardware and modern rendering frameworks support several types of <em>texture filtering</em>; for example, in OpenGL, you can specify <tt>GL_NEAREST</tt> or <tt>GL_LINEAR</tt> for magnifications. So which texture filter should we use when magnifying pixel art?
+</p>
+
+<p>
+It turns out that neither of the default options are really good for pixel art. “Nearest neighbour” filtering creates unevenly-sized pixels at non-integer factors of magnification:
+</p>
+
+<div class="canvas" data-shader="filtering">
+<canvas></canvas>
+
+<form>
+<input type="hidden" name="filtering" value="0">
+Zoom:<br>
+<input type="range" min="1" max="2" value="1" step=".001" class="slider" name="zoom">
+</form>
+</div>
+
+<p>
+“Linear” filtering adds a blurring effect which is too strong and often unwanted for pixel art. It also has a tendency to wash out some of the colour:
+</p>
+
+<div class="canvas" data-shader="filtering">
+<canvas></canvas>
+
+<form>
+<input type="hidden" name="filtering" value="1">
+Zoom:<br>
+<input type="range" min="1" max="2" value="1" step=".001" class="slider" name="zoom">
+</form>
+</div>
+
+<p>
+What we want is instead something that preserves the appearance of a square pixel by smoothing <em>only the borders between them</em>, rather than smoothing across the whole pixel:
+</p>
+
+<div class="canvas" data-shader="filtering">
+<canvas></canvas>
+
+<form>
+<input type="hidden" name="filtering" value="2">
+Zoom:<br>
+<input type="range" min="1" max="2" value="1" step=".001" class="slider" name="zoom">
+</form>
+</div>
+
+<p>
+This also has the effect that scaling at exact integer factors gives us perfectly crispy pixels.
+</p>
+
+<p>
+Of course, some people may occasionally want their pixel art a little blurred, to emulate the CRT effect. That is probably best implemented as a screen effect after compositing the scene, but before scaling it up to the full screen.
+</p>
+
+<!--
+<p>
+You can also compare the three methods by toggling between them:
+</p>
+
+<div class="canvas" data-shader="filtering">
+<canvas></canvas>
+
+<form>
+<input type="hidden" name="filtering" value="1">
+Zoom:<br>
+<input type="range" min="1" max="2" value="1.5" step=".001" class="slider" name="zoom">
+Filtering:<br>
+<label><input type="radio" name="filtering" value="0" checked>Nearest neighbour</label><br>
+<label><input type="radio" name="filtering" value="1">Linear</label><br>
+<label><input type="radio" name="filtering" value="2">Point</label><br>
+</form>
+</div>
+-->

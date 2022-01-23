@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Procedural pixel art rendering</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div style="position: fixed; top: 0px; right: 0px;">
+<a href="https://github.com/vegard/pixel-art"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+</div>
+
+<div id="main">
+
+<h1>Procedural pixel art rendering</h1>
+
+<div class="author">
+Vegard Nossum &mdash; <a href="https://twitter.com/vegard_no">@vegard_no</a>
+</div>
+
+<p>
+In some sense, pixel art is all about communicating meaningfully despite the limitations of the medium, specifically the limited spatial resolutions and limited palettes.
+</p>
+
+<p>
+This article is about rendering pixel art <em>procedurally</em>, for example rendering 3D scenes and objects at lower resolutions but arriving at a result that mimics pixel art rather than being pure reductions.
+</p>
+
+{% for page in pages %}
+{% include page %}
+{% endfor %}
+
+</div>
+
+</body>
+
+<script src="js/shaders.js"></script>
+<script src="js/script.js"></script>
+
+</html>

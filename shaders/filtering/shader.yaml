@@ -1,0 +1,17 @@
+- name: buffer
+  size: [64, 64]
+  fragment: buffer.glsl
+  textures:
+  - name: tex
+    file: guy.png
+    min: nearest
+    mag: nearest
+
+- name: screen
+  size: [640, 320]
+  fragment: screen.glsl
+  textures:
+  - name: tex
+    buffer: buffer
+    min: nearest
+    mag: nearest

@@ -1,0 +1,72 @@
+<h2>Dithering gradients</h2>
+
+<h3>Gradients</h3>
+
+<p>
+Dithering is when you alternate between two colours to create the impression of a gradient. There are so many different ways to do dithering! There is random dithering, patterned dithering, ordered dithering, etc. And we can also create variations by changing the parameters of these algorithms. One of my favourite variations of ordered dithering allows us to interpolate between plain thresholding and full ordered dithering; try playing with the “sharpness” parameter below:
+</p>
+
+<div class="canvas" data-shader="dithering">
+<canvas></canvas>
+
+<form>
+<input type="hidden" value="2.2" name="gamma">
+Dithering texture:<br>
+<select name="dither_texture">
+<option value="0">Bayer 2x2</option>
+<option value="1">Bayer 4x4</option>
+<option value="2">Bayer 8x8</option>
+<option value="3">Bayer 16x16</option>
+<option value="4">Bayer 4x4 iluod</option>
+<option value="5">Bayer 8x8 rot</option>
+<option value="6">Bayer 8x8 hor</option>
+<option value="7">Bayer 8x8 2x1</option>
+<option value="8">Maze 0</option>
+<option value="9">Maze 1</option>
+<option value="10">Maze 2</option>
+</select><br>
+Angle:<br>
+<input type="range" min="0" max="90" value="0" step=".1" class="slider" name="angle">
+Width:<br>
+<input type="range" min="0" max="2" value="1" step=".001" class="slider" name="width">
+Levels:<br>
+<input type="range" min="2" max="5" value="4" step="1" class="slider" name="levels">
+Sharpness:<br>
+<input type="range" min="0" max="1" value="0" step=".01" class="slider" name="sharpness">
+</form>
+</div>
+
+<h3>Spheres</h3>
+
+<p>
+Grab the sphere and drag it to change the position of the light source!
+</p>
+
+<div class="canvas" data-shader="sphere">
+<canvas></canvas>
+
+<form>
+Dithering texture:<br>
+<select name="dither_texture">
+<option value="0">Bayer 2x2</option>
+<option value="1">Bayer 4x4</option>
+<option value="2">Bayer 8x8</option>
+<option value="3">Bayer 16x16</option>
+<option value="4">Bayer 4x4 iluod</option>
+<option value="5">Bayer 8x8 rot</option>
+<option value="6">Bayer 8x8 hor</option>
+<option value="7">Bayer 8x8 2x1</option>
+<option value="8">Maze 0</option>
+<option value="9">Maze 1</option>
+<option value="10">Maze 2</option>
+</select><br>
+Levels:<br>
+<input type="range" min="2" max="8" value="4" step="1" class="slider" name="levels">
+Sharpness:<br>
+<input type="range" min="0" max="1" value="0" step=".01" class="slider" name="sharpness">
+</form>
+</div>
+
+<p>
+Simply by using different dithering techniques on different materials we can really make a scene come alive.
+</p>

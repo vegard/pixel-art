@@ -1,0 +1,17 @@
+- name: screen
+  size: [640, 320]
+  fragment: screen.glsl
+  textures:
+  - name: 'dither_texture'
+    choice:
+    - file: bayer-2.png
+    - file: bayer-4.png
+    - file: bayer-8.png
+    - file: bayer-16.png
+    - file: bayer-4-iluod.png
+    - file: bayer-8-rot.png
+    - file: bayer-8-hor.png
+    - file: bayer-8-2x1.png
+    - file: dither-maze-0.png
+    - file: dither-maze-1.png
+    - file: dither-maze-2.png
